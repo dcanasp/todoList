@@ -38,7 +38,7 @@ hr {
 .box hover {
     background: #f5f5f5;
 }
-.box:last-child {border-right: .1em solid $lightGrey;}
+.box:last-child {border-right: .1em solid lightGrey;}
 .box h1 {text-align: center;}
 .box p {
   margin-top: 4em;
@@ -73,6 +73,11 @@ hr {
     padding: 10px;
   
 }
+.prueba{
+  gap: 5px;
+  
+
+}
 </style>
 </head>
 <body>
@@ -82,10 +87,10 @@ hr {
 <section class="proyecto">
   <section class="materias" style="background-color:#aaa;">
     
-    <section class="tareas">
+    <section class="tareas" >
                 <h1> hola prueba primero segundo y mas texto para porbar</h1>        
                 <box class="nuevaTarea">
-                    <button> añadir</button>
+                    <button onclick="crearTarea()"> añadir</button>
 
                 </box>
             </section>
@@ -104,11 +109,11 @@ hr {
 
   <section class="materias" style="background-color:#bbb;">
     
-    <section class="tareas">
+    <section id="cambia" class="tareas">
                     <h1> chao primero</h1>
                     <br><br><br>
                     <box class="nuevaTarea">
-                        <button> añadir</button>
+                        <button onclick="makeDocument()"> añadir</button>
     
                     </box>
                 </section>
@@ -145,7 +150,109 @@ hr {
     
 
 
+<script>
 
+
+class cajas{
+
+constructor(orden){
+  this.orden = orden;
+  this.pras = 5;
+    
+
+}
+instanciar(){
+  let prueba =  {
+  type:"f",
+  padding: 15,
+  margin: "1em"
+  };
+  this.prueba = prueba;
+  console.log(this.pras);
+}
+hablar(texto){
+  console.log(this.orden)
+  console.log(texto);
+  console.log(this.prueba);
+}
+
+}
+
+//cajas.hablar();
+let tarea = new cajas(5);
+tarea.instanciar();
+tarea.hablar("mesaje");
+console.log("ohla?");
+
+class maxima{
+  constructor(orden,padding,margin){
+    //validar(orden,padding,margin);
+    this.orden = orden;
+    this.padding = padding;
+    this.margin = margin;
+      this.color = function getcolor(){
+        //return document.getElementsByClassName("prueba");
+        return document.getElementsByClassName("materias")[0].style.backgroundColor;
+      };
+  }
+  instanciar(){
+    let detalles = {
+      ordenA: this.orden,
+      paddingA: this.padding,
+      marginA: this.margin,
+      sizeA: this.margin
+    };
+
+  }
+  validar(orden,padding,margin,size){return;}
+  hablar(){
+    console.log("aqui");
+    console.log(this.color());
+  }
+//hacer que este sea heredado del otro
+}
+
+class proyecto{
+  
+//que herede
+}
+let primero = new maxima(1);
+primero.hablar();
+console.log(primero.color);
+function ordenarTareas(){  
+  return 1;
+}
+
+function crearTarea(){
+  let x = ordenarTareas(1,2,3,4);
+  let final = new maxima(x);
+  document.getElementById("cambia").style.backgroundColor = final.color();
+}
+
+
+function makeDocument() {
+  let frame = document.getElementById("theFrame");
+
+  let doc = document.implementation.createHTMLDocument("New Document");
+  let p = doc.createElement("p");
+  p.textContent = "This is a new paragraph.";
+
+  try {
+    doc.body.appendChild(p);
+  } catch(e) {
+    console.log(e);
+  }
+
+  // Copy the new HTML document into the frame
+  
+  let destDocument = frame.contentDocument;
+  let srcNode = doc.documentElement;
+  let newNode = destDocument.importNode(srcNode, true);
+
+  destDocument.replaceChild(newNode, destDocument.documentElement);
+}
+
+</script>
     
 
 
