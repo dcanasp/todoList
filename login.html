@@ -1,120 +1,261 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <body>
-        <link rel="stylesheet" href="bootstrap.css">
-    <style>
-    
+<meta charset="UTF-8">
 
-    .cajas {        
-        float: left;
-        background-color: #375a7f;
-        width: 35%;
-        padding: 7px;
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        border-radius: 60px 60px 60px 60px;
+<body>
+  <link rel="stylesheet" href="bootstrap.css">
+  <style>
+    .cajas {
+      float: left;
+      background-color: #375a7f;
+      width: 35%;
+      padding: 7px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      border-radius: 60px 60px 60px 60px;
     }
-    label
-		{
-		padding: 2px;
-		width: 150px;
-		text-align: center;
-		display: inline-block;
-		}
-		
-    .btn{
-        background-color: #f39c12;
-        border: none;
-        color: white;
-        padding: 16px 32px;
-        text-align: center;
-        font-size: 16px;
-         margin: 4px 2px;
-        transition: 0.3s;      
-    }    
+
+    .registro {
+      display: none;
+      background-color: #375a7f;
+      width: 40%;
+      padding: 7px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      border-radius: 60px 60px 60px 60px;
+    }
+
+    label {
+      padding: 2px;
+      width: 150px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn {
+      background-color: #f39c12;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition: 0.3s;
+    }
+
     .btn:hover {
-        background-color: #00bc8c;
-        color: white;
+      background-color: #00bc8c;
+      color: white;
     }
+
     .prueba2 {
-    float: left;
-    width: 50%;
-    padding: 5px;
+      float: left;
+      width: 50%;
+      padding: 5px;
     }
 
 
     /*.col-auto-lado::after {*/
-    .prueba::after{
-    content: "";
-    clear: both;
-    display: table;
+    .prueba::after {
+      content: "";
+      clear: both;
+      display: table;
     }
 
     @media screen and (max-width: 20px) {
-    .column {
+      .column {
         width: 100%;
-        }
+      }
     }
 
+    .btnRegistrar {
+      float: right;
 
-    </style>
-    </head>
-    <body>
-        <section id="login">
-            <box class="cajas">
-                <h1>hola</h1>
-                <span class="placeholder col-12 bg-success"></span> <!-- barrita verde bonita-->
-                <br><br><br><br>
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">Usuario</label>
-                        </div>
-                        <div class="col-auto">
-                        <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline" placeholder="Digite su usario valido">
-                        </div>
-                        
-                    </div>                    
-                    
-                
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Contraseña</label>
-                        </div>
-                        <div class="prueba2">
-                            <input type="password" id="inputPassword6" class="prueba" class="col-auto" class="form-control" aria-describedby="passwordHelpInline" placeholder="Dijite su contraseña">
-                            <img onmouseover="mostrarClave()" onmouseleave="ocultarClave()" src="mostrarClave.png" class="prueba" class="img-fluid" alt="Mostrar" style="width:20%">                                                                                        
-                        </div>
-                    </div>
-                
-                <br><br>
-                <button class="btn" onclick="submit()">ingresar</button>
-                
-            </box>
-
-        </section>
-    </body>
-<script src=C:\David\programacion\boostrap\bootstrap-5.1.3-dist\js\boostrap.js></script>
-<script>
-function mostrarClave(){                
-        document.getElementById("inputPassword6").type = "text";                        
     }
-function ocultarClave(){                
-        document.getElementById("inputPassword6").type = "password";
+  </style>
+  </head>
+
+  <body>
+    <button class="btnRegistrar" onclick="registroForm()" id="btnRegistrar">registrarse</button>
+
+
+    <section id="login">
+      <box class="cajas">
+        <h1>hola</h1>
+        <span class="placeholder col-12 bg-success"></span> <!-- barrita verde bonita-->
+        <br><br><br><br>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Usuario</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
+              placeholder="Digite su usario valido">
+          </div>
+
+        </div>
+
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Contraseña</label>
+          </div>
+          <div class="prueba2">
+            <input type="password" id="inputPassword6" class="prueba" class="col-auto" class="form-control"
+              aria-describedby="passwordHelpInline" placeholder="Dijite su contraseña">
+            <img onmouseover="mostrarClave()" onmouseleave="ocultarClave()" src="mostrarClave.png" class="prueba"
+              class="img-fluid" alt="Mostrar" style="width:20%">
+          </div>
+        </div>
+
+        <br><br>
+        <button class="btn" onclick="submit()">ingresar</button>
+
+      </box>
+
+    </section>
+
+    <section id="registrarse">
+
+
+
+    </section>
+
+    <box id="registro" class="registro">
+      <center>
+        <h1>Registro</h1>
+      </center>
+      <span class="placeholder col-11 bg-success"></span> <!-- barrita verde bonita-->
+      <br><br><br><br>
+      <form>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-11">
+              <!--se baja el numero o sube para las columnas -->
+
+              <div class="input-group">
+
+                <span class="input-group-text" id="">Nombres y Apellidos</span>
+
+                <input id="nombre" type="text" class="form-control">
+                <input id="apellido" type="text" class="form-control">
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="input-group">
+              
+              <span class="input-group-text">correo;</span>
+              <input type="email" class="form-control" id="validationCustomUsername" placeholder="correo @" required>
+
+
+              <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                  <label class="col-auto my-1">Genero</label>
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>Choose...</option>
+                    <option value="1">hombre</option>
+                    <option value="2">mujer</option>
+                    <option value="3">otro</option>
+                  </select>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+          <br>
+          <!-- dsajd;asdlhas dasj fasf-->
+
+
+
+          <div class="row">
+            
+            <div class="input-group">
+            
+              <span class="input-group-text" id="inputGroupPrepend">@</span>
+
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" required>
+              <span class="input-group-text" id="inputGroupPrepend">edad </span>
+
+              <input id="edad" type="number" class="form-control" min="7" max="99">
+
+
+            </div>
+
+          </div>
+
+
+          <br>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <center><button class="btn" onclick="submit()">ingresar</button></center>
+
+      </form>
+    </box>
+
+  </body>
+  <script src=C:\David\programacion\boostrap\bootstrap-5.1.3-dist\js\boostrap.js></script>
+  <script>
+    //registroForm()//borrar solo para pruebas
+    function mostrarClave() {
+      document.getElementById("inputPassword6").type = "text";
     }
-function submit(){
-    userName = document.getElementById("inputPassword5").value;
-    clave = document.getElementById("inputPassword6").value;
-    //validar y eso, no implementado
+    function ocultarClave() {
+      document.getElementById("inputPassword6").type = "password";
+    }
+    function submit() {
+      userName = document.getElementById("inputPassword5").value;
+      clave = document.getElementById("inputPassword6").value;
+      //validar y eso, no implementado
 
-    //supongo que es valido
-    document.getElementById("login").style.display = "none";
-    
-}
+      //supongo que es valido
+      limpiarValores();
+      document.getElementById("login").style.display = "none";
+    }
+    function registroForm() {
+      if (document.getElementById("login").style.display.toString() == "none") {
+        document.getElementById("login").style.display = "block";
+        document.getElementById("registro").style.display = "none";        
+        document.getElementById("btnRegistrar").innerHTML = "registrarse";
+      }
+      else {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("registro").style.display = "block";
+        document.getElementById("btnRegistrar").innerHTML = "login";
+        limpiarValores();
+      }
 
-</script>
+    }
+
+    function limpiarValores() {
+      document.getElementById("inputPassword5").value = "";
+      document.getElementById("inputPassword6").value = "";
+
+    }
+
+  </script>
+
 </html>
