@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+    body {
+      margin: 100px 100px 100px 100px;
+      display: grid;
+      grid-template-columns: repeat(3,minmax(100px, 350px));
+      grid-template-rows: repeat(5,100px);
+      grid-gap: 50px 80px;
+    }
+
+    .nombres{
+        text-align:center;
+        vertical-align:middle;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="row g-3 align-items-center" style="background-color: #ff0000;">
+        <div class="nombres">
+            Nombre de la carpeta
+        </div>
+    </div>
+  <div class="row g-3 align-items-center" style="background-color: #fff000;">
+        <div class="nombres">
+            Nombre de la carpeta 2
+        </div>
+    </div>
+
+  <div class="row g-3 align-items-center" style="background-color: #000fff;">
+        <div class="nombres">
+            Nombre de la carpeta 4
+        </div>
+    </div>
+
+  <div class="row g-3 align-items-center" style="background-color: #00ffff;">
+        <div class="nombres">
+            Nombre de la carpeta 3
+        </div>
+    </div>
+
+  </body>
+  <script src=C:\David\programacion\boostrap\bootstrap-5.1.3-dist\js\boostrap.js></script>
+  <script>
+    //registroForm()//borrar solo para pruebas
+    function mostrarClave() {
+      document.getElementById("inputPassword6").type = "text";
+    }
+    function ocultarClave() {
+      document.getElementById("inputPassword6").type = "password";
+    }
+    function submit() {
+      userName = document.getElementById("inputPassword5").value;
+      clave = document.getElementById("inputPassword6").value;
+      //validar y eso, no implementado
+
+      //supongo que es valido
+      limpiarValores();
+      document.getElementById("login").style.display = "none";
+    }
+    function registroForm() {
+      if (document.getElementById("login").style.display.toString() == "none") {
+        document.getElementById("login").style.display = "block";
+        document.getElementById("registro").style.display = "none";
+        document.getElementById("btnRegistrar").innerHTML = "registrarse";
+      }
+      else {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("registro").style.display = "block";
+        document.getElementById("btnRegistrar").innerHTML = "login";
+        limpiarValores();
+      }
+
+    }
+
+    function limpiarValores() {
+      document.getElementById("inputPassword5").value = "";
+      document.getElementById("inputPassword6").value = "";
+
+    }
+
+  </script>
+
+</html>
