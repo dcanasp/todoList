@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 
 <body>
+
   <link rel="stylesheet" href="bootstrap.css">
   <style>
     .cajas {
@@ -134,7 +135,7 @@
       </center>
       <span class="placeholder col-11 bg-success"></span> <!-- barrita verde bonita-->
       <br><br><br><br>
-      <form>
+      <form method="post">
 
         <div class="container">
           <div class="row">
@@ -154,7 +155,7 @@
           <div class="row">
 
             <div class="input-group">
-              
+
               <span class="input-group-text">correo;</span>
               <input type="email" class="form-control" id="validationCustomUsername" placeholder="correo @" required>
 
@@ -181,9 +182,9 @@
 
 
           <div class="row">
-            
+
             <div class="input-group">
-            
+
               <span class="input-group-text" id="inputGroupPrepend">@</span>
 
               <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" required>
@@ -217,8 +218,46 @@
     </box>
 
   </body>
-  <script src=C:\David\programacion\boostrap\bootstrap-5.1.3-dist\js\boostrap.js></script>
+  <script src=C:\Users\david\myFirst.js></script>
   <script>
+
+    // Example POST method implementation:
+    async function postData(data) {
+      let url = 'http://localhost:3000/';
+      // Default options are marked with *
+      
+      let response = await fetch(url, {
+        body: JSON.stringify(data),
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+         // body data type must match "Content-Type" header
+      });
+      console.log(response.body);
+      console.error();
+      return response;//.json(); // parses JSON response into native JavaScript objects
+      
+      
+    }
+/*
+    postData('http://localhost:3000', {answer: 42 })
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+      });
+
+    async call => {
+      valor = await fetch("http:/localhost:3000/");
+      return valor;
+    }
+
+*/
     //registroForm()//borrar solo para pruebas
     function mostrarClave() {
       document.getElementById("inputPassword6").type = "text";
@@ -229,16 +268,58 @@
     function submit() {
       userName = document.getElementById("inputPassword5").value;
       clave = document.getElementById("inputPassword6").value;
-      //validar y eso, no implementado
-
+      //validar y eso, no implementado      
       //supongo que es valido
-      limpiarValores();
-      document.getElementById("login").style.display = "none";
+//          document.getElementById("btnRegistrar").style.display = "none";
+//          limpiarValores();
+//          document.getElementById("login").style.display = "none";
+      datos = {
+        usuario: userName,
+        pasword: clave
+      };
+
+
+      /*
+      var url = "http://localhost:3000/";
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url);
+
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }};
+
+      var data = `{
+        "Id": 78912,
+        "Customer": "Jason Sweet",
+        "Quantity": 1,
+        "Price": 18.00
+      }`;
+
+      xhr.send(data);
+
+*/
+      //const request = new Request('http://localhost:3000/');
+      /*
+      const request = new Request('http://localhost:3000/', {
+        method: 'POST',
+        body: 'Hello world'
+      }, pruebar());
+
+      request.body;
+      */
+      console.log(postData(datos));
+
     }
     function registroForm() {
       if (document.getElementById("login").style.display.toString() == "none") {
         document.getElementById("login").style.display = "block";
-        document.getElementById("registro").style.display = "none";        
+        document.getElementById("registro").style.display = "none";
         document.getElementById("btnRegistrar").innerHTML = "registrarse";
       }
       else {
