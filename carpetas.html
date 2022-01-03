@@ -1,87 +1,68 @@
-<!DOCTYPE html>
-<html>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="bootstrap.css">
-    <style>
-    body {
-      margin: 100px 100px 100px 100px;
-      display: grid;
-      grid-template-columns: repeat(3,minmax(100px, 350px));
-      grid-template-rows: repeat(5,100px);
-      grid-gap: 50px 80px;
-    }
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .nombres{
-        text-align:center;
-        vertical-align:middle;
-    }
-  </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
   </head>
-
-  <body>
-    <div class="row g-3 align-items-center" style="background-color: #ff0000;">
-        <div class="nombres">
-            Nombre de la carpeta
-        </div>
+  <body style="background-color: #212529FF;">
+<div class="container my-5">
+  <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-5">
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            carpeta 1
+        </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    tarea 1
+                </label>
+            </li>
+            <li><button class="dropdown-item" type="button">Another action</button></li>
+            <li><button class="dropdown-item" type="button">Something else here</button></li>
+          </ul>
+      </div>
     </div>
-  <div class="row g-3 align-items-center" style="background-color: #fff000;">
-        <div class="nombres">
-            Nombre de la carpeta 2
-        </div>
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            carpeta 2
+        </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item checkbox" href="#">tarea 1</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+      </div>
     </div>
-
-  <div class="row g-3 align-items-center" style="background-color: #000fff;">
-        <div class="nombres">
-            Nombre de la carpeta 4
-        </div>
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+            carpeta 3
+        </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item checkbox" href="#">tarea 1</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+      </div>
     </div>
+  </div>
+</div>
 
-  <div class="row g-3 align-items-center" style="background-color: #00ffff;">
-        <div class="nombres">
-            Nombre de la carpeta 3
-        </div>
-    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
   </body>
-  <script src=C:\David\programacion\boostrap\bootstrap-5.1.3-dist\js\boostrap.js></script>
-  <script>
-    //registroForm()//borrar solo para pruebas
-    function mostrarClave() {
-      document.getElementById("inputPassword6").type = "text";
-    }
-    function ocultarClave() {
-      document.getElementById("inputPassword6").type = "password";
-    }
-    function submit() {
-      userName = document.getElementById("inputPassword5").value;
-      clave = document.getElementById("inputPassword6").value;
-      //validar y eso, no implementado
-
-      //supongo que es valido
-      limpiarValores();
-      document.getElementById("login").style.display = "none";
-    }
-    function registroForm() {
-      if (document.getElementById("login").style.display.toString() == "none") {
-        document.getElementById("login").style.display = "block";
-        document.getElementById("registro").style.display = "none";
-        document.getElementById("btnRegistrar").innerHTML = "registrarse";
-      }
-      else {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("registro").style.display = "block";
-        document.getElementById("btnRegistrar").innerHTML = "login";
-        limpiarValores();
-      }
-
-    }
-
-    function limpiarValores() {
-      document.getElementById("inputPassword5").value = "";
-      document.getElementById("inputPassword6").value = "";
-
-    }
-
-  </script>
-
 </html>
