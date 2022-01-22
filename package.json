@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "todoList-firebase",
+  "main": "app.js",
+  "dependencies": {
+    "firebase": "^9.4.1",
+    "parcel": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcanasp/todoList.git"
+  },
+  "author": "david cañas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcanasp/todoList/issues"
+  },
+  "homepage": "https://github.com/dcanasp/todoList#readme"
+}

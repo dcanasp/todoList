@@ -9,7 +9,7 @@
   
 <body>
 
-  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="/login.ae22893d.css">
   <style>
     .cajas {
       float: left;
@@ -85,11 +85,12 @@
       float: right;
       
     }
-    </style>
-    </head>
+    
+</style>
+    
   
   <body>
-    <script src="app.js" type="module"></script>
+    <script src="/login.5baa4167.js" defer=""></script>
     
     <button class="btnRegistrar" onclick="registroForm()" id="btnRegistrar">registrarse</button>
     
@@ -104,8 +105,7 @@
             <label for="inputPassword6" class="col-form-label">Usuario</label>
           </div>
           <div class="col-auto">
-            <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
-              placeholder="Digite su usario valido">
+            <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline" placeholder="Digite su usario valido">
           </div>
 
         </div>
@@ -116,10 +116,8 @@
             <label for="inputPassword6" class="col-form-label">Contraseña</label>
           </div>
           <div class="prueba2">
-            <input type="password" id="inputPassword6" class="prueba" class="col-auto" class="form-control"
-              aria-describedby="passwordHelpInline" placeholder="Dijite su contraseña">
-            <img onmouseover="mostrarClave()" onmouseleave="ocultarClave()" src="Imagenes/mostrarClave.png" class="prueba"
-              class="img-fluid" alt="Mostrar" style="width:20%">
+            <input type="password" id="inputPassword6" class="prueba" aria-describedby="passwordHelpInline" placeholder="Dijite su contraseña">
+            <img onmouseover="mostrarClave()" onmouseleave="ocultarClave()" src="/mostrarClave.59cb52a3.png" class="prueba" alt="Mostrar" style="width:20%">
           </div>
         </div>
 
@@ -164,14 +162,14 @@
             <div class="input-group">
 
               <span class="input-group-text">correo;</span>
-              <input type="email" class="form-control" id="validationCustomUsername" placeholder="correo @" required>
+              <input type="email" class="form-control" id="validationCustomUsername" placeholder="correo @" required="">
 
 
               <div class="form-row align-items-center">
                 <div class="col-auto my-1">
                   <label class="col-auto my-1">Genero</label>
                   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
+                    <option selected="">Choose...</option>
                     <option value="1">hombre</option>
                     <option value="2">mujer</option>
                     <option value="3">otro</option>
@@ -192,7 +190,7 @@
 
               <span class="input-group-text" id="inputGroupPrepend">@</span>
 
-              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" required>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" required="">
               <span class="input-group-text" id="inputGroupPrepend">edad </span>
 
               <input id="edad" type="number" class="form-control" min="7" max="99">
@@ -207,7 +205,7 @@
 
           <div class="form-group">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
               <label class="form-check-label" for="invalidCheck">
                 Agree to terms and conditions
               </label>
@@ -219,58 +217,50 @@
           <br><br>
           <center><button class="btn" onclick="submit()">ingresar</button></center>
 
-      </form>
+      </div></form>
     </box>
 
     
 
-  <script>
-    
-   
-    function mostrarClave() {
-      document.getElementById("inputPassword6").type = "text";
-    }
-    function ocultarClave() {
-      document.getElementById("inputPassword6").type = "password";
-    }
-    function submit() {
-      userName = document.getElementById("inputPassword5").value;
-      clave = document.getElementById("inputPassword6").value;
-      //validar y eso, no implementado      
-      //supongo que es valido
-      //          document.getElementById("btnRegistrar").style.display = "none";
-      //          limpiarValores();
-//          document.getElementById("login").style.display = "none";
-datos = {
+  <script>function mostrarClave() {
+    document.getElementById("inputPassword6").type = "text";
+}
+function ocultarClave() {
+    document.getElementById("inputPassword6").type = "password";
+}
+function submit() {
+    userName = document.getElementById("inputPassword5").value;
+    clave = document.getElementById("inputPassword6").value;
+    //validar y eso, no implementado      
+    //supongo que es valido
+    //          document.getElementById("btnRegistrar").style.display = "none";
+    //          limpiarValores();
+    //          document.getElementById("login").style.display = "none";
+    datos = {
         usuario: userName,
         pasword: clave
-      };
-      //preuba = JSON.pase(datos);
-      console.log(postData(datos));
-      
-    }
-    function registroForm() {
-      if (document.getElementById("login").style.display.toString() == "none") {
+    };
+    //preuba = JSON.pase(datos);
+    console.log(postData(datos));
+}
+function registroForm() {
+    if (document.getElementById("login").style.display.toString() == "none") {
         document.getElementById("login").style.display = "block";
         document.getElementById("registro").style.display = "none";
         document.getElementById("btnRegistrar").innerHTML = "registrarse";
-      }
-      else {
+    } else {
         document.getElementById("login").style.display = "none";
         document.getElementById("registro").style.display = "block";
         document.getElementById("btnRegistrar").innerHTML = "login";
         limpiarValores();
-      }
-
     }
-    
-    function limpiarValores() {
-      document.getElementById("inputPassword5").value = "";
-      document.getElementById("inputPassword6").value = "";
+}
+function limpiarValores() {
+    document.getElementById("inputPassword5").value = "";
+    document.getElementById("inputPassword6").value = "";
+}
 
-    }
-    
-    </script>
+</script>
 
 </body>
-</html>
+</body></html>

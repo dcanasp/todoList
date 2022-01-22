@@ -1,4 +1,3 @@
-
 .d{
     background-color: #adb5bd ;
     width: 100%;
@@ -87,4 +86,94 @@
 .badgTwo{
     margin-left: 1062px;
     margin-top: -25px;
+}
+.d{
+    background-color: #adb5bd ;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+
+}
+.s{
+    width: 80px;
+    margin-left: 80px;  
+    font-size: 20px;
+    margin-top: -28px;
+}
+.confi{
+    width: 30px;
+}
+.noti{
+    width: 30px;
+}
+
+.cuadrito{
+    margin-top: 80px;
+}
+.lavidaesuna{
+    width: 1500px;
+    height: 1500px;
+    margin-top: 80px;
+}
+.cualquiera{
+    position: absolute;
+    width: 325px;
+    height: 915px;
+    background-color: #444;
+}
+.esta{
+    width: 80%;
+    margin-top: -870px;
+    margin-left: 350px;
+}
+.configurationlist{
+    width: 95%;
+    margin-top: 20px;
+    margin-left: 7px;
+}
+.ds{
+    margin-top: 10px;
+    margin-left: 7px;
+}
+.text{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.f{
+    margin-top: -100;
+}
+.task{
+   margin-top: -70px ;
+   margin-left: 400px;
+   width: 300px;
+}
+.sss{
+    position: relative;
+    margin-top: 1000px;
+    width: 250px;
+    margin-left: 750px;
+}
+
+.gu{
+    margin-left: 350px;
+    width: 80%;
+   
+}
+.addb{
+    width:30px;
+    margin-top: 7px;
+}
+.folder{
+    width: 125px;
+    margin-top: -28px;
+    margin-left: 350px;
+}
+.badg{
+    margin-left: 508px;
+    margin-top: -115px;
+}
+.badgTwo{
+    margin-left: 1062px;
+    margin-top: -25px;
+
 }
