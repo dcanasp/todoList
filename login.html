@@ -1,269 +1,83 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
-  </head>
-  
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&family=Montserrat+Alternates:ital,wght@0,700;1,500&family=Raleway:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Work-Here</title>
+</head>
+
 <body>
-
-  <link rel="stylesheet" href="bootstrap.css">
-  <style>
-    .cajas {
-      float: left;
-      background-color: #375a7f;
-      width: 35%;
-      padding: 7px;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      border-radius: 60px 60px 60px 60px;
-    }
-
-    .registro {
-      display: none;
-      background-color: #375a7f;
-      width: 40%;
-      padding: 7px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      border-radius: 60px 60px 60px 60px;
-    }
-
-    label {
-      padding: 2px;
-      width: 150px;
-      text-align: center;
-      display: inline-block;
-    }
-
-    .btn {
-      background-color: #f39c12;
-      border: none;
-      color: white;
-      padding: 16px 32px;
-      text-align: center;
-      font-size: 16px;
-      margin: 4px 2px;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #00bc8c;
-      color: white;
-    }
     
-    .prueba2 {
-      float: left;
-      width: 50%;
-      padding: 5px;
-    }
-
-
-    /*.col-auto-lado::after {*/
-    .prueba::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-    
-    @media screen and (max-width: 20px) {
-      .column {
-        width: 100%;
-      }
-    }
-    
-    .btnRegistrar {
-      float: right;
-      
-    }
-    </style>
-    </head>
-  
-  <body>
     <script src="app.js" type="module"></script>
-    
-    <button class="btnRegistrar" onclick="registroForm()" id="btnRegistrar">registrarse</button>
-    
-    
-    <section id="login">
-      <box class="cajas">
-        <h1>hola</h1>
-        <span class="placeholder col-12 bg-success"></span> <!-- barrita verde bonita-->
-        <br><br><br><br>
-        <div class="row g-3 align-items-center">
-          <div class="col-auto">
-            <label for="inputPassword6" class="col-form-label">Usuario</label>
-          </div>
-          <div class="col-auto">
-            <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
-              placeholder="Digite su usario valido">
-          </div>
-
-        </div>
-
-
-        <div class="row g-3 align-items-center">
-          <div class="col-auto">
-            <label for="inputPassword6" class="col-form-label">Contraseña</label>
-          </div>
-          <div class="prueba2">
-            <input type="password" id="inputPassword6" class="prueba" class="col-auto" class="form-control"
-              aria-describedby="passwordHelpInline" placeholder="Dijite su contraseña">
-            <img onmouseover="mostrarClave()" onmouseleave="ocultarClave()" src="Imagenes/mostrarClave.png" class="prueba"
-              class="img-fluid" alt="Mostrar" style="width:20%">
-          </div>
-        </div>
-
-        <br><br>
-        <button class="btn" id="btnLogin">ingresar</button>
-
-      </box>
-
-    </section>
-
-    <section id="registrarse">
-
-
-
-    </section>
-
-    <box id="registro" class="registro">
-      <center>
-        <h1>Registro</h1>
-      </center>
-      <span class="placeholder col-11 bg-success"></span> <!-- barrita verde bonita-->
-      <br><br><br><br>
-      <form method="post">
-
-        <div class="container">
-          <div class="row">
-            <div class="col-11">
-              <!--se baja el numero o sube para las columnas -->
-
-              <div class="input-group">
-
-                <span class="input-group-text" id="">Nombres y Apellidos</span>
-
-                <input id="nombre" type="text" class="form-control">
-                <input id="apellido" type="text" class="form-control">
-              </div>
-              <br>
-            </div>
-          </div>
-          <div class="row">
-
-            <div class="input-group">
-
-              <span class="input-group-text">correo;</span>
-              <input type="email" class="form-control" id="validationCustomUsername" placeholder="correo @" required>
-
-
-              <div class="form-row align-items-center">
-                <div class="col-auto my-1">
-                  <label class="col-auto my-1">Genero</label>
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">hombre</option>
-                    <option value="2">mujer</option>
-                    <option value="3">otro</option>
-                  </select>
+        <section id="landingPage">
+            <div class="mainContainer">
+                <div class="logoMain">
+                    <img src="Imagenes/logo.svg" alt="Logo">
                 </div>
-
-
-              </div>
-
+                <div class="mainContainer_text">
+                    <div class="mainContainer_text_title">
+                        <h1 class="title">Bienvenido a <span class="titleD">Work-Here</span></h1>
+                    </div>
+                </div>
+                <div class="mainContainer_text_button">
+                    <a href="#">Ingresar</a>
+                </div>
             </div>
-          </div>
-          <br>
-
-
-          <div class="row">
-
-            <div class="input-group">
-
-              <span class="input-group-text" id="inputGroupPrepend">@</span>
-
-              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" required>
-              <span class="input-group-text" id="inputGroupPrepend">edad </span>
-
-              <input id="edad" type="number" class="form-control" min="7" max="99">
-
-
-            </div>
-
-          </div>
-
-
-          <br>
-
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div class="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
-          </div>
-          <br><br>
-          <center><button class="btn" onclick="submit()">ingresar</button></center>
-
-      </form>
-    </box>
-
+    
+            <section id="logIn">
+    
+                <div class="logIn-container">
+    
+                    <div class="logIn-header">
+                        <div class="logo">
+                            <img src="Imagenes/LogoPequeño.svg" alt="WorkHere Logo">
+                        </div>
+                        <div class="logIn-header__name">
+                            <h3>Work-Here </h3>
+                            <i class="bi bi-x-circle-fill closeModal"></i>
+                        </div>
+                    </div>
+    
+                    <div class="logIn-form">
+                        <div class="logIn-form__title">
+                            <h3>Iniciar Sesion</h3>
+                        </div>
+                        <div class="logIn-form__form">
+                            <form>
+                                <input type="text" id="inputPassword5"  class="user input" placeholder="Usuario"> 
+                                <input type="password" id="inputPassword6" class="password input" placeholder="Contraseña">
+                                <input type="submit" id="btnLogin" class="Ingresar" value="Ingresar">
+                                <a href="#" class="forgot">¿Olvidaste la contraseña?</a>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="logIn_footer">
+                        <div class="logIn_footer_text">
+                            <a href="#">¿No tienes cuenta? <span>Registrate</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    
+        <script src="index.js"></script>
     
 
   <script>
     
-   
-    function mostrarClave() {
-      document.getElementById("inputPassword6").type = "text";
-    }
-    function ocultarClave() {
-      document.getElementById("inputPassword6").type = "password";
-    }
-    function submit() {
-      userName = document.getElementById("inputPassword5").value;
-      clave = document.getElementById("inputPassword6").value;
-      //validar y eso, no implementado      
-      //supongo que es valido
-      //          document.getElementById("btnRegistrar").style.display = "none";
-      //          limpiarValores();
-//          document.getElementById("login").style.display = "none";
-datos = {
-        usuario: userName,
-        pasword: clave
-      };
-      //preuba = JSON.pase(datos);
-      console.log(postData(datos));
-      
-    }
-    function registroForm() {
-      if (document.getElementById("login").style.display.toString() == "none") {
-        document.getElementById("login").style.display = "block";
-        document.getElementById("registro").style.display = "none";
-        document.getElementById("btnRegistrar").innerHTML = "registrarse";
-      }
-      else {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("registro").style.display = "block";
-        document.getElementById("btnRegistrar").innerHTML = "login";
-        limpiarValores();
-      }
 
-    }
-    
     function limpiarValores() {
       document.getElementById("inputPassword5").value = "";
       document.getElementById("inputPassword6").value = "";

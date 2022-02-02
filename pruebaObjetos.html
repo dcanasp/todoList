@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @charset "UTF-8";
+
+.prueba{
+    color: #E0FF4F;
+
+}
+:root {
+    --accent: #E0FF4F;
+    --bg: #fae1dd;
+    --done: #37eb94;
+    --undone: #83BCFF;
+}
+
+body {
+    background-color: var(--bg);    
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+#todo,
+#todo .add,
+#todo::after,
+#todo .addTodo,
+#panels .links,
+#tabs .widgets {
+    position: absolute;
+}
+
+#todo {
+    right: 0;
+    width: 350px;
+    height: 100%;
+}
+
+
+        </style>
+
+    </head>
+    <body>
+    
+
+        
+        <div class="principal" id="clases">
+            <button class="btnAnadir" onclick="instanciar()"><img src="img/add.png"></button>
+            <div class="+ addTodo">
+                <input type="text" value="" class="AddToListInput" placeholder="todo" spellcheck="false">
+            </div>
+            <rows class="items" id="materiasAnadir">
+                <h1 class="+">todo</h1>
+            </rows>
+        </div>
+    
+    <script>
+        function instanciar(){
+            
+            new todo().inicio()
+        }
+        class todo{
+            constructor(){
+                let baseDatos =1;
+                let palabra = "si";
+                let nuevoObjeto = {
+                    nombre: palabra,
+                    id: baseDatos
+                };
+            }
+            inicio(){
+            let todos = [];
+            todos.push({nombre:"materiaA",
+            fecha: "hoy",
+            numero: 5
+            },{nombre:"materiaB",
+            fecha: "mañana",
+            numero: 6
+            });
+            
+            console.log(todos);
+            //document.getElementById("materiasAnadir").innerHTML = '<ol class="prueba"><li>hola</li></ol>';
+
+
+            let para = document.createElement("div");
+            let div = document.createTextNode("diferente");
+            para.appendChild(div);
+            para.innerHTML = "<ol class='prueba'><li>hola</li></ol>"
+            let element = document.getElementById("materiasAnadir");
+            element.appendChild(para);
+            
+            for (let key of todos) {
+                for (let item in key) {
+                    let nuevo = document.createElement("div");
+                    let div = document.createTextNode("diferente");
+                    nuevo.appendChild(div);
+                    nuevo.innerHTML = key[item];
+                    console.log(key[item]);
+                    let element = document.getElementById("materiasAnadir");
+                    element.appendChild(nuevo);
+                    
+                    
+                    /*
+                    `<item ${key[item][0]}>
+                        <rows>
+                            <p>${key[item][1]}</p>
+                            <button class="!> close"></button>
+                            <p class="row-end added-at">${key[item][2].toLowerCase()} - <span>${item}</span></p>
+                            </rows>
+                            </item>`;
+                            */
+                        }
+                    }
+                }
+
+                asignar(){
+
+
+                }
+                
+            
+            
+        }
+
+
+    </script>
+</body>
+</html>

@@ -16,7 +16,7 @@ async function guardar(){
     
     userName = document.getElementById("inputPassword5").value;
     clave = document.getElementById("inputPassword6").value;
-
+    limpiarValores();
     try {
       const docRef = await addDoc(collection(db, "prueba"), {
         id: 03,
