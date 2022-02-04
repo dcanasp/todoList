@@ -519,12 +519,14 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"igcvL":[function(require,module,exports) {
-var _firestore = require("firebase/firestore");
+var _firestore = require("firebase/firestore"); //anadir a la base de datos 
 var _firebaseJs = require("./firebase.js");
 //import {guardar} from "./crear.js"
 //si exporte default se le quitan los corchetes al importar
 document.getElementById("btnLogin").onclick = function() {
-    guardar();
+    //guardar();
+    //sacar();
+    validarLogin();
 };
 async function guardar() {
     // const db = firebase.firestore();
@@ -541,6 +543,43 @@ async function guardar() {
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
+    }
+}
+async function sacar() {
+    userName = document.getElementById("inputPassword5").value;
+    clave = document.getElementById("inputPassword6").value;
+    const docRef = _firestore.doc(_firebaseJs.db, "prueba", "16");
+    const docSnap = await _firestore.getDoc(docRef);
+    if (docSnap.exists()) console.log("Document data:", docSnap.data());
+    else // doc.data() will be undefined in this case
+    console.log("No such document!");
+}
+async function validarLogin() {
+    let userName = document.getElementById("inputPassword5").value;
+    let clave = document.getElementById("inputPassword6").value;
+    const q = _firestore.query(_firestore.collection(_firebaseJs.db, "prueba"), _firestore.where("nombre", "==", userName));
+    const querySnapshot = await _firestore.getDocs(q);
+    let bandera = false;
+    querySnapshot.forEach((doc)=>{
+        if (clave == doc.data()["contrasena"]) {
+            usuarioActual = new usuario();
+            crearNuevaPagina();
+            window.close();
+            window.open("main.html");
+            document.getElementById;
+            console.log("bingo");
+            bandera = true;
+            limpiarValores();
+        } else {
+            console.log("no valido contrasena");
+            alert("contraseña no valida, intente nuevamente");
+        }
+    //console.log(doc.id, " => ", doc.data());//
+    });
+    if (bandera == false) {
+        console.log("no valido");
+        limpiarValores();
+        alert("datos no validos, intente nuevamente");
     }
 }
 
