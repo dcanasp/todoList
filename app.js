@@ -29,38 +29,29 @@ class coneccion{
     
     let userName = document.getElementById("inputPassword5").value;
     let password = document.getElementById("inputPassword6").value;
-    //limpiarValores();
-    let userNames = ["alexei","felipe","juan","anna","jorge","camilo","miguel"]
-    for(let i=0; i<6;i++){
-
+    let materia = "prueba";//se saca del html
+    let tareaTexto = "no esta implementado";//hacer
+    limpiarValores();
+    
+    
       try {
         const docRef = await addDoc(collection(db, "todoList"), {
-          usuario: userNames[i],
-          clave: "clave",
-          id: i+2,
-          programacion: {
+          usuario: userName,
+          clave: password,
+          id: 9,
+          [materia]: {
             createdAt: Timestamp.now(),
-            tarea: "proyectoFinal",
+            tarea: tareaTexto,
             fechaEntrega: Timestamp.fromDate(new Date("2022,2,12"))
-          },
-          fisica: {
-            createdAt: Timestamp.now(),
-            tarea: "parcial 3",
-            fechaEntrega: Timestamp.fromDate(new Date("2022,2,10"))
-          },
+          }
           
-          integral: {
-            createdAt: Timestamp.now(),
-            tarea: "taller 4",
-            fechaEntrega: Timestamp.fromDate(new Date("2022,2,11"))
-          },
-
+            
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
         console.error("Error adding document: ", e);
       }    
-    }
+
       
 }
 
