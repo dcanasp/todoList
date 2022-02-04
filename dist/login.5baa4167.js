@@ -530,19 +530,43 @@ document.getElementById("btnLogin").onclick = function() {
 };
 class coneccion {
     constructor(){
-        this.validarLogin();
+        //this.validarLogin();
+        this.guardar();
     }
     async guardar() {
         // const db = firebase.firestore();
-        userName = document.getElementById("inputPassword5").value;
-        clave = document.getElementById("inputPassword6").value;
-        limpiarValores();
-        try {
-            const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "prueba"), {
-                id: 3,
-                nombre: userName,
-                contrasena: clave,
-                createdAt: Date.now()
+        let userName = document.getElementById("inputPassword5").value;
+        let password = document.getElementById("inputPassword6").value;
+        //limpiarValores();
+        let userNames = [
+            "alexei",
+            "felipe",
+            "juan",
+            "anna",
+            "jorge",
+            "camilo",
+            "miguel"
+        ];
+        for(let i = 0; i < 6; i++)try {
+            const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "todoList"), {
+                usuario: userNames[i],
+                clave: "clave",
+                id: i + 2,
+                programacion: {
+                    createdAt: _firestore.Timestamp.now(),
+                    tarea: "proyectoFinal",
+                    fechaEntrega: _firestore.Timestamp.fromDate(new Date("2022,2,12"))
+                },
+                fisica: {
+                    createdAt: _firestore.Timestamp.now(),
+                    tarea: "parcial 3",
+                    fechaEntrega: _firestore.Timestamp.fromDate(new Date("2022,2,10"))
+                },
+                integral: {
+                    createdAt: _firestore.Timestamp.now(),
+                    tarea: "taller 4",
+                    fechaEntrega: _firestore.Timestamp.fromDate(new Date("2022,2,11"))
+                }
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
@@ -552,7 +576,7 @@ class coneccion {
     async sacar() {
         userName = document.getElementById("inputPassword5").value;
         clave = document.getElementById("inputPassword6").value;
-        const docRef = _firestore.doc(_firebaseJs.db, "prueba", "16");
+        const docRef = _firestore.doc(_firebaseJs.db, "todoList", "16");
         const docSnap = await _firestore.getDoc(docRef);
         if (docSnap.exists()) console.log("Document data:", docSnap.data());
         else // doc.data() will be undefined in this case
@@ -561,7 +585,7 @@ class coneccion {
     async validarLogin() {
         let userName = document.getElementById("inputPassword5").value;
         let clave = document.getElementById("inputPassword6").value;
-        const q = _firestore.query(_firestore.collection(_firebaseJs.db, "prueba"), _firestore.where("nombre", "==", userName));
+        const q = _firestore.query(_firestore.collection(_firebaseJs.db, "todoList"), _firestore.where("usuario", "==", userName));
         const querySnapshot = await _firestore.getDocs(q);
         let bandera = false;
         querySnapshot.forEach((doc)=>{
