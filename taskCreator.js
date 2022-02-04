@@ -4,15 +4,16 @@ const ul = document.querySelector(".taskUl");
 const empty = document.querySelector(".empty");
 
 
-class todo{
+class todo extends coneccion {
     constructor(){
         
     }
-    anadir(){
+    anadir(informacion){
         adBtn.addEventListener("click", (e)=>{
             e.preventDefault();
         
-            const taskText = task.value;
+            //const taskText = task.value;
+            const taskText = informacion.value;
         
             if(taskText !== "" ){
                 const li = document.createElement("li");

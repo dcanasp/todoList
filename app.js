@@ -14,11 +14,16 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 document.getElementById("btnLogin").onclick = function() {  
     //guardar();
     //sacar();
-    validarLogin();
+    usuarioActual = new coneccion;
 };  
+class coneccion{
+  constructor(){
+    this.validarLogin();
+  }
 
-async function guardar(){
-   // const db = firebase.firestore();
+  
+  async guardar(){
+    // const db = firebase.firestore();
     
     userName = document.getElementById("inputPassword5").value;
     clave = document.getElementById("inputPassword6").value;
@@ -37,7 +42,7 @@ async function guardar(){
      
 }
 
-async function sacar(){
+async sacar(){
   
   userName = document.getElementById("inputPassword5").value;
   clave = document.getElementById("inputPassword6").value;
@@ -55,7 +60,7 @@ if (docSnap.exists()) {
 
 }
 
-async function validarLogin(){
+async validarLogin(){
   let userName = document.getElementById("inputPassword5").value;
   let clave = document.getElementById("inputPassword6").value;
   
@@ -65,17 +70,9 @@ async function validarLogin(){
   querySnapshot.forEach((doc) => {
     if(clave == doc.data()["contrasena"]){
       
-      usuarioActual = new usuario();
-      crearNuevaPagina()
+    
+      crearNuevaPagina()      
       
-      window.close();
-      window.open("main.html");
-      document.getElementById
-      console.log("bingo");
-      bandera = true;
-      limpiarValores();
-
-
     }
     else{
       console.log("no valido contrasena");
@@ -88,6 +85,19 @@ async function validarLogin(){
     limpiarValores();
     alert("datos no validos, intente nuevamente");
   }
+}
+
+crearNuevaPagina(id){
+
+  window.close();
+  window.open("main.html");
+  document.getElementById
+  console.log("bingo");
+  bandera = true;
+  limpiarValores();
+      
+
+}
 
   
 

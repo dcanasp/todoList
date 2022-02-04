@@ -526,60 +526,65 @@ var _firebaseJs = require("./firebase.js");
 document.getElementById("btnLogin").onclick = function() {
     //guardar();
     //sacar();
-    validarLogin();
+    usuarioActual = new coneccion;
 };
-async function guardar() {
-    // const db = firebase.firestore();
-    userName = document.getElementById("inputPassword5").value;
-    clave = document.getElementById("inputPassword6").value;
-    limpiarValores();
-    try {
-        const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "prueba"), {
-            id: 3,
-            nombre: userName,
-            contrasena: clave,
-            createdAt: Date.now()
-        });
-        console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
+class coneccion {
+    constructor(){
+        this.validarLogin();
     }
-}
-async function sacar() {
-    userName = document.getElementById("inputPassword5").value;
-    clave = document.getElementById("inputPassword6").value;
-    const docRef = _firestore.doc(_firebaseJs.db, "prueba", "16");
-    const docSnap = await _firestore.getDoc(docRef);
-    if (docSnap.exists()) console.log("Document data:", docSnap.data());
-    else // doc.data() will be undefined in this case
-    console.log("No such document!");
-}
-async function validarLogin() {
-    let userName = document.getElementById("inputPassword5").value;
-    let clave = document.getElementById("inputPassword6").value;
-    const q = _firestore.query(_firestore.collection(_firebaseJs.db, "prueba"), _firestore.where("nombre", "==", userName));
-    const querySnapshot = await _firestore.getDocs(q);
-    let bandera = false;
-    querySnapshot.forEach((doc)=>{
-        if (clave == doc.data()["contrasena"]) {
-            usuarioActual = new usuario();
-            crearNuevaPagina();
-            window.close();
-            window.open("main.html");
-            document.getElementById;
-            console.log("bingo");
-            bandera = true;
-            limpiarValores();
-        } else {
-            console.log("no valido contrasena");
-            alert("contraseña no valida, intente nuevamente");
-        }
-    //console.log(doc.id, " => ", doc.data());//
-    });
-    if (bandera == false) {
-        console.log("no valido");
+    async guardar() {
+        // const db = firebase.firestore();
+        userName = document.getElementById("inputPassword5").value;
+        clave = document.getElementById("inputPassword6").value;
         limpiarValores();
-        alert("datos no validos, intente nuevamente");
+        try {
+            const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "prueba"), {
+                id: 3,
+                nombre: userName,
+                contrasena: clave,
+                createdAt: Date.now()
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
+    async sacar() {
+        userName = document.getElementById("inputPassword5").value;
+        clave = document.getElementById("inputPassword6").value;
+        const docRef = _firestore.doc(_firebaseJs.db, "prueba", "16");
+        const docSnap = await _firestore.getDoc(docRef);
+        if (docSnap.exists()) console.log("Document data:", docSnap.data());
+        else // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+    async validarLogin() {
+        let userName = document.getElementById("inputPassword5").value;
+        let clave = document.getElementById("inputPassword6").value;
+        const q = _firestore.query(_firestore.collection(_firebaseJs.db, "prueba"), _firestore.where("nombre", "==", userName));
+        const querySnapshot = await _firestore.getDocs(q);
+        let bandera = false;
+        querySnapshot.forEach((doc)=>{
+            if (clave == doc.data()["contrasena"]) crearNuevaPagina();
+            else {
+                console.log("no valido contrasena");
+                alert("contraseña no valida, intente nuevamente");
+            }
+        //console.log(doc.id, " => ", doc.data());//
+        });
+        if (bandera == false) {
+            console.log("no valido");
+            limpiarValores();
+            alert("datos no validos, intente nuevamente");
+        }
+    }
+    crearNuevaPagina(id) {
+        window.close();
+        window.open("main.html");
+        document.getElementById;
+        console.log("bingo");
+        bandera = true;
+        limpiarValores();
     }
 }
 
