@@ -1,46 +1,35 @@
-import coneccion from "./app.js";
+import {validarLogin} from "./app.js";
 
-//module.exports = BasePageHandler
 
 const adBtn = document.querySelector(".addBtn");
-console.log("creando botones");
 const task = document.querySelector(".task");
 const ul = document.querySelector(".taskUl");
 const empty = document.querySelector(".empty");
 
 
+adBtn.addEventListener("click", (e)=>{
+    e.preventDefault();
 
-class todo extends coneccion {
-    constructor(){
-        console.log("hola?");
+    const taskText = task.value;
+
+    if(taskText !== "" ){
+        const li = document.createElement("li");
+        const p = document.createElement("p");
+
+        li.classList = "taskItem";
+        p.classList = "taskItem_p";
+        p.textContent = taskText;
+
+        li.appendChild(p);
+        li.appendChild(addDeleteBtn());
+        ul.appendChild(li);
+
+        empty.style.display = "none";
+        task.value ="";
     }
-    anadir(informacion){
-        this.test();
-        adBtn.addEventListener("click", (e)=>{
-            e.preventDefault();
-        
-            //const taskText = task.value;
-            const taskText = informacion.value;
-        
-            if(taskText !== "" ){
-                const li = document.createElement("li");
-                const p = document.createElement("p");
-        
-                li.classList = "taskItem";
-                p.classList = "taskItem_p";
-                p.textContent = taskText;
-        
-                li.appendChild(p);
-                li.appendChild(addDeleteBtn());
-                ul.appendChild(li);
-                
-                empty.style.display = "none";
-                task.value ="";
-            }
-        })
-    }
+})
     
-    addDeleteBtn(){    
+    function addDeleteBtn(){    
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "X"
     deleteBtn.classList = "deleteBtn"
@@ -60,13 +49,8 @@ class todo extends coneccion {
     return deleteBtn;
 }
 
-    test(){
-    console.log(45);
-    console.log(super.getNombre());
-    document.getElementById("cambiarNombre").innerHTML == <li><a href=""><%= usuarioGlobal %></a></li>;
-    //<li><a href=""><%= usuarioGlobal %></a></li>
-
+    function test(){
+    document.getElementById("cambiarNombre").innerHTML = "bienvenido "+localStorage.getItem("usuario");
+    console.log(localStorage.getItem("usuario"))
     }
-
-}
-let prueba = new todo.test();
+    test();

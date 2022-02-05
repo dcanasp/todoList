@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"d5kvp":[function(require,module,exports) {
+})({"143DZ":[function(require,module,exports) {
 "use strict";
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "138b6a135baa4167";
+module.bundle.HMR_BUNDLE_ID = "05d4ad350e513bc5";
 function _toConsumableArray(arr) {
     return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
@@ -518,7 +518,47 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"igcvL":[function(require,module,exports) {
+},{}],"8W8Yy":[function(require,module,exports) {
+var _appJs = require("./app.js");
+const adBtn = document.querySelector(".addBtn");
+const task = document.querySelector(".task");
+const ul = document.querySelector(".taskUl");
+const empty = document.querySelector(".empty");
+adBtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    const taskText = task.value;
+    if (taskText !== "") {
+        const li = document.createElement("li");
+        const p = document.createElement("p");
+        li.classList = "taskItem";
+        p.classList = "taskItem_p";
+        p.textContent = taskText;
+        li.appendChild(p);
+        li.appendChild(addDeleteBtn());
+        ul.appendChild(li);
+        empty.style.display = "none";
+        task.value = "";
+    }
+});
+function addDeleteBtn() {
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    deleteBtn.classList = "deleteBtn";
+    deleteBtn.addEventListener("click", (e)=>{
+        const item = e.target.parentElement;
+        ul.removeChild(item);
+        const items = document.querySelectorAll("li");
+        if (items.length == 0) empty.style.display = "flex";
+    });
+    return deleteBtn;
+}
+function test() {
+    document.getElementById("cambiarNombre").innerHTML = "bienvenido " + localStorage.getItem("usuario");
+    console.log(localStorage.getItem("usuario"));
+}
+test();
+
+},{"./app.js":"igcvL"}],"igcvL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "validarLogin", ()=>validarLogin
@@ -22316,6 +22356,6 @@ var version = "9.4.1";
  * limitations under the License.
  */ _app.registerVersion(name, version, 'app');
 
-},{"@firebase/app":"7iRq1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["d5kvp","igcvL"], "igcvL", "parcelRequire78f8")
+},{"@firebase/app":"7iRq1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["143DZ","8W8Yy"], "8W8Yy", "parcelRequire78f8")
 
-//# sourceMappingURL=login.5baa4167.js.map
+//# sourceMappingURL=main.0e513bc5.js.map
