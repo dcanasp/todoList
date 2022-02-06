@@ -17,10 +17,10 @@ export class coneccion{
   }
 */
   
-  async function guardar(userName,password){
-    // const db = firebase.firestore();        
-    let materia = "prueba";//se saca del html
-    let tareaTexto = "no esta implementado";//hacer            
+  async function guardar(materias){
+    for(let i = 0;i<materias.length;i++){
+      let materia = materias.data()[nombre];//se saca del html
+      let tareaTexto = materias.data()[nombre];//hacer            
       try {
         const docRef = await addDoc(collection(db, "todoList"), {
           usuario: userName,
@@ -32,17 +32,21 @@ export class coneccion{
             fechaEntrega: Timestamp.fromDate(new Date("2022,2,12"))
           }
           
-            
+          
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
         console.error("Error adding document: ", e);
       }    
-
       
-  }
+    }
+      
+    }
 
-async function sacar(userName,clave){
+async function sacar(userName){
+  //querySnapshot = validarLogin(userName);
+
+
   const docRef = doc(db, "todoList", "16");//saque un dato especifico de una coleccion, no sirve
   const docSnap = await getDoc(docRef);
 
@@ -61,13 +65,5 @@ export async function validarLogin(userName){
 }
 
 
-function getNombre(){
-  console.log(usuarioGlobal);
-  return usuarioGlobal;
-  //const docRef = doc(db, "todoList", "16");//saque un dato especifico de una coleccion, no sirve
-  //const docSnap = await getDoc(docRef);
-}  
-
-//}
 
 

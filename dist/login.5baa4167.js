@@ -533,27 +533,29 @@ export class coneccion{
     //this.validarLogin();
     //this.guardar();
   }
-*/ async function guardar(userName, password) {
-    // const db = firebase.firestore();        
-    let materia = "prueba"; //se saca del html
-    let tareaTexto = "no esta implementado"; //hacer            
-    try {
-        const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "todoList"), {
-            usuario: userName,
-            clave: password,
-            id: 9,
-            [materia]: {
-                createdAt: _firestore.Timestamp.now(),
-                tarea: tareaTexto,
-                fechaEntrega: _firestore.Timestamp.fromDate(new Date("2022,2,12"))
-            }
-        });
-        console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
+*/ async function guardar(materias) {
+    for(let i = 0; i < materias.length; i++){
+        let materia = materias.data()[nombre]; //se saca del html
+        let tareaTexto = materias.data()[nombre]; //hacer            
+        try {
+            const docRef = await _firestore.addDoc(_firestore.collection(_firebaseJs.db, "todoList"), {
+                usuario: userName,
+                clave: password,
+                id: 9,
+                [materia]: {
+                    createdAt: _firestore.Timestamp.now(),
+                    tarea: tareaTexto,
+                    fechaEntrega: _firestore.Timestamp.fromDate(new Date("2022,2,12"))
+                }
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
     }
 }
-async function sacar(userName, clave) {
+async function sacar(userName) {
+    //querySnapshot = validarLogin(userName);
     const docRef = _firestore.doc(_firebaseJs.db, "todoList", "16"); //saque un dato especifico de una coleccion, no sirve
     const docSnap = await _firestore.getDoc(docRef);
     if (docSnap.exists()) console.log("Document data:", docSnap.data());
@@ -565,12 +567,6 @@ async function validarLogin(userName) {
     const querySnapshot = await _firestore.getDocs(q);
     return querySnapshot;
 }
-function getNombre() {
-    console.log(usuarioGlobal);
-    return usuarioGlobal;
-//const docRef = doc(db, "todoList", "16");//saque un dato especifico de una coleccion, no sirve
-//const docSnap = await getDoc(docRef);
-} //}
 
 },{"firebase/firestore":"cJafS","./firebase.js":"dBiHI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cJafS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
